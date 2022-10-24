@@ -1,4 +1,4 @@
-// promesa de si todo ha sido resuelto sucederá lo siguiente
+// promesa de si todo ha sido resuelto, sin importar que sea reject sucederá lo siguiente
 
 const promise = new Promise ((resolve, reject) => reject('Reject'));
 const promise2 = new Promise ((resolve, reject) => resolve('resolve'));
@@ -6,7 +6,7 @@ const promise3 = new Promise((resolve, reject) => resolve('Resolve 2'));
 
 Promise.allSettled([promise, promise2, promise3])
 .then(response => console.log(response));
-// resultado
+// resultado, sin importar el reject, continuó la validación
 // [
 //     { status: 'rejected', reason: 'Reject' },
 //     { status: 'fulfilled', value: 'resolve' },
